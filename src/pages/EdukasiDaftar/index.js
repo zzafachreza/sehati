@@ -22,6 +22,11 @@ export default function EdukasiDaftar({ navigation, route }) {
 
     const [data, setData] = useState([]);
 
+    const M1 = route.params.menu == 'Gangguan Pola Tidur' ? require('../../assets/M3.png') : require('../../assets/M1.png');
+    const M2 = route.params.menu == 'Gangguan Pola Tidur' ? require('../../assets/M3.png') : require('../../assets/M2.png');
+
+    const C1 = route.params.menu == 'Gangguan Pola Tidur' ? colors.primary : colors.satu;
+    const C2 = route.params.menu == 'Gangguan Pola Tidur' ? colors.secondary : colors.dua;
     useEffect(() => {
 
         if (isFocused) {
@@ -66,7 +71,7 @@ export default function EdukasiDaftar({ navigation, route }) {
                             position: 'relative'
                         }}>
                             <TouchableOpacity onPress={() => navigation.navigate('EdukasiPdf', item)} style={{
-                                backgroundColor: index % 2 != 0 ? colors.satu : colors.dua,
+                                backgroundColor: index % 2 != 0 ? C1 : C2,
                                 borderColor: colors.border,
                                 marginHorizontal: 10,
                                 height: 100,
@@ -79,35 +84,37 @@ export default function EdukasiDaftar({ navigation, route }) {
                                 flexDirection: 'row'
                             }}>
                                 <View style={{
-                                    flex: 0.7,
+                                    flex: index % 2 != 0 ? 0.6 : 0.7,
                                     justifyContent: 'center',
                                     alignItems: index % 2 != 0 ? 'flex-end' : 'flex-start',
-                                    padding: 10,
+                                    padding: 5,
                                 }}>
                                     <Text style={{
 
                                         fontSize: windowWidth / 20,
                                         fontFamily: fonts.secondary[600],
-                                        color: index % 2 != 0 ? colors.dua : colors.white
-                                    }}>{item.judul} {index}</Text>
+                                        color: route.params.menu == 'Gangguan Pola Tidur' && index % 2 != 0 ? colors.white : route.params.menu == 'Gangguan Pola Tidur' && index % 2 == 0 ? colors.primary : index % 2 != 0 ? colors.dua : colors.white
+                                    }}>{item.judul}</Text>
                                 </View>
 
 
                             </TouchableOpacity >
-                            {index % 2 != 0 && <Image source={require('../../assets/M1.png')} style={{
-                                width: 130,
+                            {index % 2 != 0 && <Image source={M1} style={{
+                                width: 110,
                                 position: 'absolute',
-                                height: 130,
+                                height: 110,
+                                resizeMode: 'contain',
                                 left: 0,
                                 top: 0,
                                 zIndex: 99
                             }} />}
 
-                            {index % 2 == 0 && <Image source={require('../../assets/M2.png')} style={{
-                                width: 130,
+                            {index % 2 == 0 && <Image source={M2} style={{
+                                width: 110,
                                 position: 'absolute',
-                                height: 130,
+                                height: 110,
                                 right: 0,
+                                resizeMode: 'contain',
                                 top: 0,
                                 zIndex: 99
                             }} />}

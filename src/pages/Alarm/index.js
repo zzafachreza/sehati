@@ -67,7 +67,7 @@ export default function Alarm() {
         }}>
             <DatePicker
                 options={{
-                    backgroundColor: 'transparent',
+                    backgroundColor: colors.primary,
                     textHeaderColor: colors.white,
                     textDefaultColor: colors.white,
                     selectedTextColor: colors.black,
@@ -92,10 +92,10 @@ export default function Alarm() {
                     })
                     console.log(moment(x).format('YYYY-MM-DD'))
                 }}
-                on
-                minuteInterval={10}
+                minuteInterval={1}
                 style={{ borderRadius: 10 }}
             />
+            <MyGap jarak={10} />
             <MyButton title="Atur Alarm" warna={kondisi ? colors.black : colors.primary} onPress={createAlarm} />
             <MyGap jarak={10} />
             <Text style={{

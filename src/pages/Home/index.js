@@ -272,7 +272,7 @@ export default function Home({ navigation }) {
           flexDirection: 'row',
           justifyContent: 'space-around'
         }}>
-          <TouchableOpacity onPress={() => navigation.navigate('Edukasi')} style={{
+          <TouchableOpacity onPress={() => navigation.navigate('Tentang')} style={{
             width: 100,
             height: 100,
             borderRadius: 50,
@@ -297,11 +297,11 @@ export default function Home({ navigation }) {
 
 
         <Image source={require('../../assets/lansia.png')} style={{
-          width: 200,
+          width: windowWidth,
           position: 'absolute',
-          bottom: 0,
-          left: 10,
-          height: 180,
+          bottom: -10,
+          left: 0,
+          height: 220,
 
         }} />
       </View>

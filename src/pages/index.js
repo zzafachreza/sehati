@@ -13,6 +13,7 @@ import HasilDetail from './HasilDetail';
 import EdukasiDaftar from './EdukasiDaftar';
 import Artikel from './Artikel';
 import ArtikelDetail from './ArtikelDetail';
+import Tentang from './Tentang';
 
 
 
@@ -31,7 +32,8 @@ export {
   HasilDetail,
   EdukasiDaftar,
   Artikel,
-  ArtikelDetail
+  ArtikelDetail,
+  Tentang
 
 
 };

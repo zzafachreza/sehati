@@ -12,7 +12,7 @@ import axios from 'axios';
 import { maskJs, maskCurrency } from 'mask-js';
 import moment from 'moment';
 import 'moment/locale/id';
-export default function HasilDetail({ route }) {
+export default function HasilDetail({ navigation, route }) {
     const item = route.params;
     console.log('item', item);
 
@@ -285,6 +285,10 @@ export default function HasilDetail({ route }) {
                         <Text style={{ flex: 1, fontFamily: fonts.secondary[600], fontSize: 20 }}>Hasil Ukur</Text>
                         <Text style={{ fontFamily: fonts.secondary[600], fontSize: 20 }}>{indexK}</Text>
                     </View>
+
+                    {totalK > 5 && <View style={{
+                        marginVertical: 10,
+                    }}><MyButton onPress={() => navigation.navigate('Konsultasi')} warna={colors.primary} title="Konsultasi" /></View>}
                 </View>
 
             </ScrollView>

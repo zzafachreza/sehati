@@ -1,11 +1,12 @@
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, BackHandler } from 'react-native'
 import React from 'react'
 import { colors, fonts, windowWidth } from '../../utils'
 import { Icon } from 'react-native-elements'
 import RenderHtml from 'react-native-render-html';
 import { MyButton } from '../../components';
 import { ImageBackground } from 'react-native';
-export default function GetStarted({ navigation }) {
+import { storeData } from '../../utils/localStorage';
+export default function Tentang({ navigation }) {
     return (
         <ImageBackground
             source={require('../../assets/get.png')}
@@ -32,46 +33,46 @@ export default function GetStarted({ navigation }) {
                 paddingTop: 10,
                 flex: 1,
             }}>
+                <View style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                }}>
+                    <Icon type='ionicon' name='fitness' size={windowWidth / 15} color={colors.primary} />
+                    <Text style={{
+                        left: 5,
+                        fontFamily: fonts.secondary[800],
+                        fontSize: windowWidth / 15,
 
-
-
+                    }}>Tentang</Text>
+                </View>
 
 
                 <Text style={{
                     marginTop: 10,
                     marginHorizontal: 20,
                     fontFamily: fonts.primary[400],
-                    fontSize: windowWidth / 18,
+                    fontSize: windowWidth / 17,
                     textAlign: 'justify'
-                }}>“Hal yang paling menyenangkan di tengah masa sulit adalah kesehatan yang baik dan tidur yang cukup.”  {'\n'} – <Text style={{ fontFamily: fonts.secondary[800] }}>Knute Nelson</Text>
-
-                </Text>
-
-
+                }}><Text style={{
+                    fontFamily: fonts.primary[800],
+                }}>Sehati</Text> adalah aplikasi yang mengoptimalkan edukasi mengenai Gangguan Pola Tidur pada Lansia Hipertensi dengan tampilan yang mudah digunakan dan informasi yang akurat, kita dapat membantu masyarakat dalam memahami dan mengatasi masalah ini.</Text>
                 <Text style={{
                     marginTop: 10,
                     marginHorizontal: 20,
                     fontFamily: fonts.primary[400],
-                    fontSize: windowWidth / 18,
+                    fontSize: windowWidth / 17,
                     textAlign: 'justify'
-                }}>“Untuk menikmati cahaya kesehatan yang baik, Anda harus berolahraga.”  {'\n'} – <Text style={{ fontFamily: fonts.secondary[800] }}>Gene Tunney</Text>
-
-                </Text>
-
-                <Text style={{
-                    marginTop: 10,
-                    marginHorizontal: 20,
-                    fontFamily: fonts.primary[400],
-                    fontSize: windowWidth / 18,
-                    textAlign: 'justify'
-                }}>“Kesehatan adalah renungan yang pertama dan tidur adalah syarat untuk mendapatkannya”   {'\n'} –
-                    <Text style={{ fontFamily: fonts.secondary[800] }}>Waldo Emerson</Text>
-                </Text>
+                }}>Aplikasi ini membawa solusi baru dalam memerangi Gangguan Pola Tidur pada Lansia Hipertensi dan memastikan bahwa setiap orang memiliki akses yang sama untuk informasi yang berkualitas.</Text>
 
             </View>
-            <View>
-                <MyButton onPress={() => navigation.navigate('Home')} title="Selanjutnya" warna={colors.primary} Icons="fitness" />
-            </View>
+
+            <MyButton title="Logout" warna={colors.black} onPress={() => {
+
+                storeData('user', null);
+                navigation.replace('Home');
+
+            }} />
+
         </ImageBackground>
     )
 }

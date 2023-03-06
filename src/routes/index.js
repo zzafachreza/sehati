@@ -17,6 +17,7 @@ import {
   EdukasiDaftar,
   Artikel,
   ArtikelDetail,
+  Tentang,
 } from '../pages';
 import { colors } from '../utils';
 import { Icon } from 'react-native-elements';
@@ -43,6 +44,14 @@ export default function Router() {
       <Stack.Screen
         name="GetStarted"
         component={GetStarted}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="Tentang"
+        component={Tentang}
         options={{
           headerShown: false,
         }}

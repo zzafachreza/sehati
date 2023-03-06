@@ -25,9 +25,13 @@ export default function Hasil({ navigation }) {
     useEffect(() => {
 
         if (isFocused) {
-            axios.post(apiURL + 'riwayat').then(res => {
-                console.log(res.data);
-                setData(res.data);
+            getData('user').then(u => {
+                axios.post(apiURL + 'riwayat', {
+                    fid_user: u.id
+                }).then(res => {
+                    console.log(res.data);
+                    setData(res.data);
+                })
             })
         }
 
