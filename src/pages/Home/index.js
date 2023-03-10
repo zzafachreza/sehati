@@ -136,13 +136,27 @@ export default function Home({ navigation }) {
         }}>
           <TouchableOpacity onPress={() => {
 
-            getData('user').then(res => {
-              if (!res) {
-                navigation.navigate('Login')
-              } else {
-                navigation.navigate('Skrining', res)
+            Alert.alert(MYAPP, 'Apakah Anda setuju dan bersedia mengikuti skrining ? ', [
+
+              {
+                text: 'TIDAK'
+              },
+              {
+                text: 'YA',
+                onPress: () => {
+                  getData('user').then(res => {
+                    if (!res) {
+                      navigation.navigate('Login')
+                    } else {
+                      navigation.navigate('Skrining', res)
+                    }
+                  })
+
+                }
               }
-            })
+
+            ])
+
 
           }} style={{
             width: 100,
