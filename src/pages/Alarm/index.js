@@ -10,18 +10,12 @@ import DatePicker from 'react-native-datepicker'
 import 'moment/locale/id'
 import { Icon } from 'react-native-elements';
 import { maskJs, maskCurrency } from 'mask-js';
-import { MYAPP } from '../../utils/localStorage';
+import { MYAPP, getData, storeData } from '../../utils/localStorage';
 export default function Alarm() {
 
-    const [waktu, setWaktu] = useState({
-        tanggal: moment().format('YYYY-MM-DD'),
-        jam: moment().format('HH:mm')
-    })
+    const [waktu, setWaktu] = useState({})
 
-    const [waktu2, setWaktu2] = useState({
-        tanggal: moment().format('YYYY-MM-DD'),
-        jam: moment().format('HH:mm')
-    })
+    const [waktu2, setWaktu2] = useState({})
 
     const createAlarm = async () => {
 
@@ -33,6 +27,10 @@ export default function Alarm() {
             {
                 text: 'SIMPAN',
                 onPress: () => {
+
+                    storeData('waktu1', waktu);
+                    storeData('waktu2', waktu2)
+
                     console.log('waktu 1', moment(waktu.tanggal + ' ' + waktu.jam).toISOString());
                     console.log('waktu 2', moment(waktu2.tanggal + ' ' + waktu2.jam).toISOString());
 
@@ -95,6 +93,32 @@ export default function Alarm() {
         } else if (moment().format('H') >= 5 && moment().format('H') < 19) {
             setKondisi(true)
         }
+
+
+        getData('waktu1').then(res => {
+            if (!res) {
+                setWaktu({
+                    tanggal: moment().format('YYYY-MM-DD'),
+                    jam: moment().format('HH:mm')
+                })
+            } else {
+                setWaktu(res);
+            }
+        })
+
+
+        getData('waktu2').then(res => {
+            if (!res) {
+                setWaktu2({
+                    tanggal: moment().format('YYYY-MM-DD'),
+                    jam: moment().format('HH:mm')
+                })
+            } else {
+                setWaktu2(res);
+            }
+        })
+
+
     }, [])
 
 
