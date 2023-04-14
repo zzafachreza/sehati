@@ -21,7 +21,7 @@ export default function GetStarted({ navigation }) {
                     fontFamily: fonts.secondary[800],
                     fontSize: windowWidth / 10,
 
-                }}>SEHATI-SW</Text>
+                }}>SEHATI-WH</Text>
                 <Text style={{
                     fontFamily: fonts.primary[400],
                     fontSize: windowWidth / 20,

@@ -363,15 +363,10 @@ export default function Alarm() {
             <View style={{
                 flexDirection: 'row'
             }}>
+
                 <View style={{
                     flex: 1,
-                    paddingRight: 5,
-                }}>
-                    <MyButton Icons="refresh" title="Reset Alarm" warna={kondisi ? colors.black : colors.primary} onPress={deleteAllAlarms} />
-                </View>
-                <View style={{
-                    flex: 1,
-                    paddingLeft: 5,
+
                 }}>
                     <MyButton Icons="alarm" title="Atur Alarm" warna={kondisi ? colors.black : colors.primary} onPress={createAlarm} />
                 </View>
